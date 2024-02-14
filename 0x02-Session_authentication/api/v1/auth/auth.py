@@ -4,8 +4,10 @@
 Module for API authentication
 """
 
+import os
+from flask import request
 from typing import List, TypeVar
-from flask import Flask, request
+import re
 
 
 class Auth:
@@ -71,3 +73,11 @@ class Auth:
         '''
         request = Flask(__name__)
         return None
+
+    
+    def session_cookie(self, request=None) -> str:
+        """Gets the value of the cookie named SESSION_NAME.
+        """
+        if request is not None:
+            cookie_name = os.getenv('SESSION_NAME')
+            return request.cookies.get(cookie_name)
