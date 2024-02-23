@@ -135,7 +135,7 @@ class Auth:
 
         Returns:
             str: The reset password token.
-        
+
         Raises:
             ValueError: If the user does not exist.
         """
