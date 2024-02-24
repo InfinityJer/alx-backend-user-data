@@ -67,9 +67,11 @@ def reset_password_token(email: str) -> str:
 def update_password(email: str, reset_token: str, new_password: str) -> None:
     """Updates the password for a user."""
     url = f"{BASE_URL}/update_password"
-    payload = {'email': email, 'reset_token': reset_token, 'new_password': new_password}
+    payload = {'email': email, 'reset_token': reset_token,
+               'new_password': new_password}
     response = requests.post(url, json=payload)
     assert response.status_code == 200
+
 
 EMAIL = "guillaume@holberton.io"
 PASSWD = "b4l0u"
